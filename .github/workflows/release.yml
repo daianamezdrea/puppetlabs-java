@@ -37,11 +37,13 @@ jobs:
         with:
           ref: ${{ github.ref }}
           clean: true
+      - name: Prepare build folder
+        run: mkdir /github/workspace/pkg    
       - name: "PDK Build"
         uses: docker://puppet/pdk:nightly
         with:
           args: 'build'
-      - name: "Push to Forge"
-        uses: docker://puppet/pdk:nightly
-        with:
-          args: 'release publish --forge-token ${{ secrets.FORGE_API_KEY }} --force'
+#       - name: "Push to Forge"
+#         uses: docker://puppet/pdk:nightly
+#         with:
+#           args: 'release publish --forge-token ${{ secrets.FORGE_API_KEY }} --force'
