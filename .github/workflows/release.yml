@@ -44,8 +44,9 @@ jobs:
       - name: "PDK Build" 
         uses: docker://puppet/pdk:nightly
         with:
+          working-directory: /github/workspace/pkg
           args: 'build'
-          working-directory: /github/workspace/pkg 
+           
 #       - name: "Push to Forge"
 #         uses: docker://puppet/pdk:nightly
 #         with:
