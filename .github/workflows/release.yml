@@ -42,7 +42,7 @@ jobs:
 #       - name: Give permissions to pkg folder
 #         run: sudo chown -R docker /github/workspace/pkg
       - name: Give permissions to pkg folder2
-        run: sudo chmod -R 777 /github/workspace/pkg    
+        run: sudo chown o+w /github/workspace/pkg 
       - name: "PDK Build" 
         uses: docker://puppet/pdk:nightly
         with:
