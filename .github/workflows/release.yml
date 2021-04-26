@@ -38,7 +38,9 @@ jobs:
           ref: ${{ github.ref }}
           clean: true
       - name: Prepare build folder
-        run: sudo mkdir -p /github/workspace/pkg    
+        run: sudo mkdir -p /github/workspace/pkg   
+      - name: Give permissions to pkg folder
+        run: sudo chown -R $USER /github/workspace/pkg
       - name: "PDK Build"
         uses: docker://puppet/pdk:nightly
         with:
